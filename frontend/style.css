@@ -1,0 +1,213 @@
+/* Base Reset */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+/* Container */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+  color: #333;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#loginScreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#loginScreen .container {
+  text-align: center;
+  padding: 40px;
+}
+
+#loginScreen input[type="password"] {
+  padding: 10px;
+  width: 250px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin: 10px 0;
+}
+
+/* Form Inputs */
+form label,
+.form-group label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input,
+.form-group input {
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+/* Buttons */
+button {
+  background-color: #4696ec;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 10px 5px 10px 0;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Remove buttons (in salary/misc rows) */
+.salary-row button,
+.misc-row button {
+  background-color: #e43446;
+  padding: 6px 12px;
+  font-size: 12px;
+  margin: 0;
+}
+
+.salary-row button:hover,
+.misc-row button:hover {
+  background-color: #c82333;
+}
+
+/* Update Franchise Fee button */
+button.update-fee {
+  background-color: #28a745;
+  margin-left: 10px;
+  font-size: 13px;
+  padding: 8px 14px;
+}
+
+button.update-fee:hover {
+  background-color: #218838;
+}
+
+/* Row styles for dynamic inputs */
+.salary-row,
+.misc-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.salary-row input,
+.misc-row input {
+  flex: 1;
+}
+
+/* Filters & Layouts */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 10px 0 25px;
+}
+
+.filters label {
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+.filters input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  min-width: 160px;
+}
+
+/* Cards / Job Boxes */
+.job-box {
+  background: #fff;
+  border: 1px solid #e1e1e1;
+  border-left: 5px solid #76afec;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.job-box h3 {
+  color: #007bff;
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.job-box ul {
+  padding-left: 20px;
+  margin: 5px 0 15px;
+}
+
+.job-box ul li {
+  list-style: disc;
+  margin-bottom: 5px;
+}
+
+.job-box p {
+  margin: 5px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+/* YTD Summary */
+#ytdProfit p {
+  font-weight: bold;
+  color: #2e7d32;
+  font-size: 17px;
+  margin: 5px 0;
+  text-align: center;
+}
+
+/* Form Action Spacing */
+.form-actions {
+  margin-top: 20px;
+}
+
+.signature {
+  text-align: center;
+  font-family: "Brush Script MT", cursive;
+  font-size: 24px;
+  color: #555;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.movers-bay {
+  font-family: "Pirata One", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Add a pirate-style font */
+  font-size: 36px;
+  font-weight: bold;
+  color: #473ebc; /* Deep purple for a piratey vibe */
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px #000; /* Add a shadow for a dramatic effect */
+}

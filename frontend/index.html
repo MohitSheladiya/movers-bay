@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JobWise Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- 🔐 Password Screen -->
+    <div id="loginScreen">
+      <div class="container" style="text-align: center">
+        <h1>Enter Password</h1>
+        <input
+          type="password"
+          id="appPassword"
+          placeholder="Enter password..."
+        />
+        &nbsp;&nbsp;&nbsp;<button onclick="checkPassword()">Enter</button>
+        <p id="loginError" style="color: red; margin-top: 10px"></p>
+      </div>
+    </div>
+
+    <!-- 🔓 Hidden App -->
+    <div id="mainApp" style="display: none">
+      <div class="signature">Mohit Sheladiya</div>
+      <div class="container">
+        <div class="movers-bay">Movers Bay</div>
+        <!-- Job Entry Form -->
+        <h1>Add New Job</h1>
+        <form id="jobForm">
+          <div class="form-group">
+            <label>Date:</label>
+            <input type="date" id="jobDate" required />
+          </div>
+
+          <div class="form-group">
+            <label>Total Payment:</label>
+            <input type="number" id="totalPayment" required />
+          </div>
+
+          <div id="salaries">
+            <h3>
+              Salaries &nbsp;&nbsp;&nbsp;<button
+                type="button"
+                onclick="addSalary()"
+              >
+                + Add Worker
+              </button>
+            </h3>
+          </div>
+
+          <div class="form-group">
+            <label>Bonus:</label>
+            <input type="number" id="bonus" required />
+          </div>
+
+          <div class="form-group">
+            <label>Fuel:</label>
+            <input type="number" id="fuel" required />
+          </div>
+
+          <div class="form-group">
+            <label>Truck Rent:</label>
+            <input type="number" id="truckRent" required />
+          </div>
+
+          <div id="misc">
+            <h3>
+              Miscellaneous Expenses &nbsp;&nbsp;&nbsp;<button
+                type="button"
+                onclick="addMisc()"
+              >
+                + Add Expense
+              </button>
+            </h3>
+          </div>
+
+          <button type="submit">Submit Job</button>
+        </form>
+
+        <hr />
+
+        <!-- Monthly Report Filters -->
+        <h2>Filter Monthly Report</h2>
+        <div class="filters">
+          <label>From Month:</label>
+          <input type="month" id="monthlyFrom" />
+          <label>To Month:</label>
+          <input type="month" id="monthlyTo" />
+          <button onclick="filterMonthlyReport()">Apply Filter</button>
+          <button onclick="clearMonthlyFilter()">Clear Filter</button>
+        </div>
+
+        <!-- YTD Net Profit -->
+        <div id="ytdProfit"></div>
+
+        <!-- Monthly Report -->
+        <h1>Monthly Report</h1>
+        <div id="monthlyContainer">Loading monthly data...</div>
+
+        <hr />
+
+        <!-- Job Filter -->
+        <h2>Filter Jobs by Date</h2>
+        <div class="filters">
+          <label>From:</label>
+          <input type="date" id="filterFromDate" />
+          <label>To:</label>
+          <input type="date" id="filterToDate" />
+          <button onclick="filterJobsByDate()">Apply Filter</button>
+          <button onclick="clearFilter()">Clear Filter</button>
+        </div>
+
+        <!-- All Jobs -->
+        <h1>All Jobs</h1>
+        <div id="jobList"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      function checkPassword() {
+        const input = document.getElementById("appPassword").value;
+        const errorText = document.getElementById("loginError");
+
+        if (input === "takemeinbaby") {
+          document.getElementById("loginScreen").style.display = "none";
+          document.getElementById("mainApp").style.display = "block";
+        } else {
+          errorText.textContent = "Incorrect password. Try again.";
+        }
+      }
+    </script>
+  </body>
+</html>
