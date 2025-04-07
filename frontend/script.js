@@ -1,3 +1,9 @@
+const BASE_API_URL = "https://movers-bay.onrender.com";
+
+// const BASE_API_URL = window.location.hostname === "localhost"
+//   ? "http://localhost:5000"
+//   : "https://movers-bay.onrender.com";
+
 const salariesDiv = document.getElementById("salaries");
 const miscDiv = document.getElementById("misc");
 const jobListDiv = document.getElementById("jobList");
@@ -66,8 +72,8 @@ document.getElementById("jobForm").addEventListener("submit", async (e) => {
   };
 
   const url = editJobId
-    ? `http://localhost:5000/api/jobs/${editJobId}`
-    : `http://localhost:5000/api/jobs`;
+    ? `${BASE_API_URL}/api/jobs/${editJobId}`
+    : `${BASE_API_URL}/api/jobs`;
 
   const method = editJobId ? "PUT" : "POST";
 
@@ -123,7 +129,7 @@ function renderJob(job) {
 }
 
 async function loadJobs() {
-  const res = await fetch("http://localhost:5000/api/jobs");
+  const res = await fetch(`${BASE_API_URL}/api/jobs`);
   const jobs = await res.json();
 
   jobListDiv.innerHTML = "";
@@ -133,7 +139,7 @@ async function loadJobs() {
 async function deleteJob(id) {
   if (!confirm("Are you sure you want to delete this job?")) return;
 
-  const res = await fetch(`http://localhost:5000/api/jobs/${id}`, {
+  const res = await fetch(`${BASE_API_URL}/api/jobs/${id}`, {
     method: "DELETE",
   });
 
@@ -153,7 +159,7 @@ function editJob(id) {
 }
 
 async function loadMonthlyData(filterFrom = null, filterTo = null) {
-  const res = await fetch("http://localhost:5000/api/jobs/monthly");
+  const res = await fetch(`${BASE_API_URL}/api/jobs/monthly`);
   const months = await res.json();
   const container = document.getElementById("monthlyContainer");
   const ytdText = document.getElementById("ytdProfit");
@@ -235,7 +241,7 @@ async function updateFranchiseFee(month) {
     return;
   }
 
-  await fetch("http://localhost:5000/api/jobs/monthly/franchise-fee", {
+  await fetch(`${BASE_API_URL}/api/jobs/monthly/franchise-fee`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ month, franchiseFee: value }),
@@ -272,7 +278,7 @@ async function filterJobsByDate() {
     return;
   }
 
-  const res = await fetch("http://localhost:5000/api/jobs");
+  const res = await fetch(`${BASE_API_URL}/api/jobs`);
   const jobs = await res.json();
 
   const filtered = jobs.filter((job) => {
@@ -295,7 +301,7 @@ async function getSummary() {
     document.getElementById("franchiseFee").value
   );
 
-  const res = await fetch("http://localhost:5000/api/jobs/summary", {
+  const res = await fetch(`${BASE_API_URL}/api/jobs/summary`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ franchiseFee }),
@@ -318,7 +324,7 @@ async function getSummary() {
 }
 
 async function editJob(id) {
-  const res = await fetch(`http://localhost:5000/api/jobs`);
+  const res = await fetch(`${BASE_API_URL}/api/jobs`);
   const jobs = await res.json();
   const job = jobs.find((j) => j._id === id);
   if (!job) return alert("Job not found");
